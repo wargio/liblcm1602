@@ -1,5 +1,5 @@
 FILES   =       i2c lcd
-EXAMPLES=       example
+EXAMPLES=       example example2
 DEPS    =       Makefile i2c.h lcd.h
 
 AR      =       ar
