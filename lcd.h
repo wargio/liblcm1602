@@ -17,7 +17,7 @@ void lcd_print(lcd* l, const char* t, u8 len, u8 line);
 void lcd_clear(lcd* l);
 void lcd_set_cursor(lcd* l, u8 col, u8 row);
 /* not tested yet */
-void lcd_load_custom_chars(lcd* l, const char* font, u8 m);
+void lcd_add_char(lcd* l, const unsigned char font[8], u8 position);
 
 #endif /*__LCD_I2C_H__*/
 

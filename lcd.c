@@ -79,12 +79,12 @@ void lcd_set_cursor(lcd* l, u8 col, u8 row){
     u8 rows[] = {0x00, 0x40, 0x14, 0x54};
     lcd_cmd(l, 0x80 | (col + rows[row]));
 }
-/* not tested yet */
-void lcd_load_custom_chars(lcd* l, const char* font, u8 m){
-    u8 i,j;
-    set_i2c_data(l->dev, 0x40);
-    for(i=0; i<m; ++i)
-        for(j=0; j<8; ++j)
-            lcd_putc(l, font[j+i*8]);
+
+void lcd_add_char(lcd* l, const unsigned char font[8], u8 position){
+    u8 j;
+    lcd_cmd(l, 0x40 | ((position & 7) << 3));
+    for(j=0; j<8; ++j)
+      lcd_putc(l, font[j]);
 }
+
 
